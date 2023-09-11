@@ -5,6 +5,11 @@ test('calculateTotalChange returns the total change by subtracting the total mon
     expect(calculateTotalChange(12.99, 100)).toBe(87.01);
 });
 
+test('calculateTotalChange returns negative number if amount owing', () => {
+    expect(calculateTotalChange(5.43, 5)).toBe(-0.43);
+    expect(calculateTotalChange(12.99, 10)).toBe(-2.99);
+});
+
 test('calculateRoundedChange rounds to nearest 0.05', () => {
     expect(calculateRoundedChange(5.43, 10)).toBe(4.55);
     expect(calculateRoundedChange(22.59, 50)).toBe(27.40);

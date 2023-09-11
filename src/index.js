@@ -1,6 +1,6 @@
 // This function calculates the total change by subtracting the total money received from the total amount due.
 function calculateTotalChange(totalDue, moneyRecieved) {
-    return moneyRecieved - totalDue 
+    return Math.round((moneyRecieved - totalDue) * 100) / 100
 }
 
 // Canada got rid of pennies!
@@ -15,7 +15,7 @@ function calculateChangeBreakdown(totalDue, moneyRecieved) {
     return moneyRecieved - totalDue
 }
 
-console.log(calculateTotalChange(5.34, 12))
+console.log(calculateTotalChange(364.7, 400))
 console.log(calculateRoundedChange(22.59, 50))
 
 module.exports.calculateTotalChange = calculateTotalChange;
