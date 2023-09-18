@@ -16,5 +16,33 @@ test('calculateRoundedChange rounds to nearest 0.05', () => {
     expect(calculateRoundedChange(1.05, 5)).toBe(3.95);
 });
 
-test('calculateChangeBreakdown calculates the change breakdown, providing the number of each coin denomination that is owed as change', () => {
+test('calculateChangeBreakdown calculates change for 0 totalDue and 0 moneyReceived', () => {
+    const result = calculateChangeBreakdown(0, 0);
+    expect(result).toBe("You don't need to dispense change.");
 });
+
+test('calculateChangeBreakdown calculates change for exact change', () => {
+    const result = calculateChangeBreakdown(10.0, 10.0);
+    expect(result).toBe("You don't need to dispense change.");
+});
+
+test('calculateChangeBreakdown calculates change for 1 loonie', () => {
+    const result = calculateChangeBreakdown(2.0, 3.0);
+    expect(result).toBe("You need to dispense 1 loonie.");
+});
+
+test('calculateChangeBreakdown calculates change for multiple coin denominations', () => {
+    const result = calculateChangeBreakdown(5.75, 10.0);
+    expect(result).toBe("You need to dispense 2 toonies, and 1 quarter.");
+});
+
+test('calculateChangeBreakdown calculates change for small values', () => {
+    const result = calculateChangeBreakdown(0.05, 0.25);
+    expect(result).toBe("You need to dispense 2 dimes.");
+});
+
+
+
+
+
+
