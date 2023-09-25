@@ -11,37 +11,34 @@ function calculateRoundedChange(totalDue, moneyRecieved) {
 // This function calculates the change breakdown, providing the number of each coin denomination that is owed as change.
 function calculateChangeBreakdown(totalDue, moneyRecieved) {
     var runningTotal = calculateRoundedChange(totalDue, moneyRecieved);
-    // created array of objects storing properties of coins
-    //coin count keeps track of how many coins of each I will need to dispense, starting at 0 but adds to the coin count in the loops
     var coins = [
         {
-            coinName: 'toonie',
-            coinAmount: 2.00,
+            coinName: "toonie",
+            coinAmount: 2.0,
             coinCount: 0,
         },
         {
-            coinName: 'loonie',
-            coinAmount: 1.00,
+            coinName: "loonie",
+            coinAmount: 1.0,
             coinCount: 0,
         },
         {
-            coinName: 'quarter',
+            coinName: "quarter",
             coinAmount: 0.25,
             coinCount: 0,
         },
         {
-            coinName: 'dime',
-            coinAmount: 0.10,
+            coinName: "dime",
+            coinAmount: 0.1,
             coinCount: 0,
         },
         {
-            coinName: 'nickel',
+            coinName: "nickel",
             coinAmount: 0.05,
             coinCount: 0,
         },
     ];
-    //while loops going through each object in the array, adding to coin count and subtracting the coin amount from the running total
-    //using a for loop to iterate through coins array and add coinCounts to get the total number of coins needed to be dispensed
+    // loop through each coin, adding to coin count and subtracting the coin amount from the running total
     var totalCoins = 0;
     for (var _i = 0, coins_1 = coins; _i < coins_1.length; _i++) {
         var coin = coins_1[_i];
@@ -51,30 +48,30 @@ function calculateChangeBreakdown(totalDue, moneyRecieved) {
             totalCoins += 1;
         }
     }
-    // removing coins from the array that have a coin count of zero and assigning to new variable called coinsMapped
+    // removing coins from the array that have a coin count of zero
     var coinsMapped = coins.filter(function (coin) { return coin.coinCount > 0; });
     //  adding s to pluralize when there is more than one coin
     for (var i = 0; i < coinsMapped.length; i++) {
         if (coinsMapped[i].coinCount > 1) {
-            coinsMapped[i].coinName += 's';
+            coinsMapped[i].coinName += "s";
         }
     }
     //  created a variable storing the starting string for the output
-    var stringy = 'You need to dispense';
-    // if zero coins, output don't need to expense
+    var stringy = "You need to dispense";
+    // if zero coins, output don't need to dispense
     if (totalCoins == 0) {
         stringy = "You don't need to dispense change.";
     }
     else if (coinsMapped.length > 1) {
         // if length of the new array is greater than 1
-        for (var i = 0; i < (coinsMapped.length - 1); i++) {
+        for (var i = 0; i < coinsMapped.length - 1; i++) {
             stringy += " ".concat(coinsMapped[i].coinCount, " ").concat(coinsMapped[i].coinName, ",");
         }
-        //this adds the last object in the array to the end of the sentence with and in front
+        // add the last object in the array to the end of the sentence with and in front
         stringy += " and ".concat(coinsMapped[coinsMapped.length - 1].coinCount, " ").concat(coinsMapped[coinsMapped.length - 1].coinName, ".");
     }
-    else if (coinsMapped.length = 1) {
-        //this formats the output string correctly if there is only one type of coin
+    else if ((coinsMapped.length = 1)) {
+        // format the output string correctly if there is only one type of coin
         stringy = "You need to dispense ".concat(coinsMapped[0].coinCount, " ").concat(coinsMapped[0].coinName, ".");
     }
     return stringy;
