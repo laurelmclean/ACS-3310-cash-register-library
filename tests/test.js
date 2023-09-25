@@ -26,7 +26,7 @@ test('calculateChangeBreakdown calculates change for exact change', () => {
     expect(result).toBe("You don't need to dispense change.");
 });
 
-test('calculateChangeBreakdown calculates change for 1 loonie', () => {
+test('calculateChangeBreakdown calculates change for 1 coin', () => {
     const result = calculateChangeBreakdown(2.0, 3.0);
     expect(result).toBe("You need to dispense 1 loonie.");
 });
@@ -34,6 +34,12 @@ test('calculateChangeBreakdown calculates change for 1 loonie', () => {
 test('calculateChangeBreakdown calculates change for multiple coin denominations', () => {
     const result = calculateChangeBreakdown(5.75, 10.0);
     expect(result).toBe("You need to dispense 2 toonies, and 1 quarter.");
+});
+
+
+test('calculateChangeBreakdown rounds to the nearest nickel', () => {
+    const result = calculateChangeBreakdown(3.22, 5.00);
+    expect(result).toBe("You need to dispense 1 loonie, 3 quarters, and 1 nickel.");
 });
 
 test('calculateChangeBreakdown calculates change for small values', () => {
