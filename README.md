@@ -1,3 +1,6 @@
+![example workflow](https://github.com/laurelmclean/ACS-3310-cash-register-library/actions/workflows/node.js.yml/badge.svg)
+
+
 # cash-register
 
 `cash-register` is a simple JavaScript module that helps you calculate and break down change owed after a transaction. It is designed with Canadian currency denominations in mind, considering the absence of pennies in Canada.
