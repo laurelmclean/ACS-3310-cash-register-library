@@ -80,7 +80,7 @@ function calculateChangeBreakdown(totalDue: number, moneyRecieved: number): stri
     stringy += ` and ${coinsMapped[coinsMapped.length - 1].coinCount} ${
       coinsMapped[coinsMapped.length - 1].coinName
     }.`;
-  } else if ((coinsMapped.length = 1)) {
+  } else if ((coinsMapped.length == 1)) {
     // format the output string correctly if there is only one type of coin
     stringy = `You need to dispense ${coinsMapped[0].coinCount} ${coinsMapped[0].coinName}.`;
   }

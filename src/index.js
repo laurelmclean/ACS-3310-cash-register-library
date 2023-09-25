@@ -64,13 +64,14 @@ function calculateChangeBreakdown(totalDue, moneyRecieved) {
     }
     else if (coinsMapped.length > 1) {
         // if length of the new array is greater than 1
+        // eslint-disable-next-line no-redeclare
         for (var i = 0; i < coinsMapped.length - 1; i++) {
             stringy += " ".concat(coinsMapped[i].coinCount, " ").concat(coinsMapped[i].coinName, ",");
         }
         // add the last object in the array to the end of the sentence with and in front
         stringy += " and ".concat(coinsMapped[coinsMapped.length - 1].coinCount, " ").concat(coinsMapped[coinsMapped.length - 1].coinName, ".");
     }
-    else if ((coinsMapped.length = 1)) {
+    else if ((coinsMapped.length == 1)) {
         // format the output string correctly if there is only one type of coin
         stringy = "You need to dispense ".concat(coinsMapped[0].coinCount, " ").concat(coinsMapped[0].coinName, ".");
     }
