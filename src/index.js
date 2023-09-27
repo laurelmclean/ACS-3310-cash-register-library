@@ -77,9 +77,6 @@ function calculateChangeBreakdown(totalDue, moneyRecieved) {
     }
     return stringy;
 }
-console.log(calculateTotalChange(364.7, 400));
-console.log(calculateRoundedChange(22.59, 50));
-console.log(calculateChangeBreakdown(2.22, 5));
 module.exports.calculateTotalChange = calculateTotalChange;
 module.exports.calculateRoundedChange = calculateRoundedChange;
 module.exports.calculateChangeBreakdown = calculateChangeBreakdown;

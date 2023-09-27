@@ -1,8 +1,8 @@
 {
   "name": "cash-register",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "`cash-register` is a simple JavaScript module that helps you calculate and break down change owed after a transaction.",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.config.js"
