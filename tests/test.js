@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { calculateTotalChange, calculateRoundedChange, calculateChangeBreakdown } = require('../src/index.js');
 
 test('calculateTotalChange returns the total change by subtracting the total money received from the total amount due', () => {

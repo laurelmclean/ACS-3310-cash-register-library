@@ -1,4 +1,4 @@
-![example workflow](https://github.com/laurelmclean/ACS-3310-cash-register-library/actions/workflows/node.js.yml/badge.svg)
+![workflow](https://github.com/laurelmclean/ACS-3310-cash-register-library/actions/workflows/node.js.yml/badge.svg)
 
 
 # cash-register
@@ -18,7 +18,7 @@ npm install cash-register
 Import the module into your JavaScript code:
 
 ```javascript
-const cashRegister = require('cash-register');
+const { calculateTotalChange, calculateRoundedChange, calculateChangeBreakdown } = require('cash-register');
 ```
 
 ### Calculate Total Change
@@ -26,7 +26,7 @@ const cashRegister = require('cash-register');
 The `calculateTotalChange` function calculates the total change by subtracting the total amount due from the total money received.
 
 ```javascript
-const totalChange = cashRegister.calculateTotalChange(totalDue, moneyReceived);
+const totalChange = calculateTotalChange(totalDue, moneyReceived);
 ```
 
 ### Calculate Rounded Change
@@ -34,28 +34,28 @@ const totalChange = cashRegister.calculateTotalChange(totalDue, moneyReceived);
 The `calculateRoundedChange` function calculates the change by rounding to the nearest 0.05. This is suitable for handling Canadian currency without pennies.
 
 ```javascript
-const roundedChange = cashRegister.calculateRoundedChange(totalDue, moneyReceived);
+const roundedChange = calculateRoundedChange(totalDue, moneyReceived);
 ```
 
 ### Calculate Change Breakdown
 
-The `calculateChangeBreakdown` function provides a breakdown of the change, specifying the number of each coin denomination owed as change.
+The `calculateChangeBreakdown` function provides a breakdown of the change, specifying the number of each coin denomination owed as change. This function is suitable for Canadian currency where there are loonies and toonies, but no pennies.
 
 ```javascript
-const changeBreakdown = cashRegister.calculateChangeBreakdown(totalDue, moneyReceived);
+const changeBreakdown = calculateChangeBreakdown(totalDue, moneyReceived);
 ```
 
 ## Example
 
 ```javascript
-const cashRegister = require('cash-register');
+const { calculateTotalChange, calculateRoundedChange, calculateChangeBreakdown } = require('cash-register');
 
 const totalDue = 10.0;
 const moneyReceived = 20.0;
 
-const totalChange = cashRegister.calculateTotalChange(totalDue, moneyReceived);
-const roundedChange = cashRegister.calculateRoundedChange(totalDue, moneyReceived);
-const changeBreakdown = cashRegister.calculateChangeBreakdown(totalDue, moneyReceived);
+const totalChange = calculateTotalChange(totalDue, moneyReceived);
+const roundedChange = calculateRoundedChange(totalDue, moneyReceived);
+const changeBreakdown = calculateChangeBreakdown(totalDue, moneyReceived);
 
 console.log(`Total Change: $${totalChange}`);
 console.log(`Rounded Change: $${roundedChange}`);
