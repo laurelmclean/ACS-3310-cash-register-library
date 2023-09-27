@@ -1,4 +1,6 @@
 ![workflow](https://github.com/laurelmclean/ACS-3310-cash-register-library/actions/workflows/node.js.yml/badge.svg)
+[![npm version](https://img.shields.io/npm/v/cash-register.svg)](https://www.npmjs.com/package/cash-register)
+[![npm downloads](https://img.shields.io/npm/dt/cash-register.svg)](https://www.npmjs.com/package/cash-register)
 
 
 # cash-register
@@ -50,8 +52,8 @@ const changeBreakdown = calculateChangeBreakdown(totalDue, moneyReceived);
 ```javascript
 const { calculateTotalChange, calculateRoundedChange, calculateChangeBreakdown } = require('cash-register');
 
-const totalDue = 10.0;
-const moneyReceived = 20.0;
+const totalDue = 3.22;
+const moneyReceived = 5;
 
 const totalChange = calculateTotalChange(totalDue, moneyReceived);
 const roundedChange = calculateRoundedChange(totalDue, moneyReceived);
@@ -65,8 +67,8 @@ console.log(changeBreakdown);
 ## Output
 
 ```
-Total Change: $10.0
-Rounded Change: $10.0
-You need to dispense 5 toonies.
+Total Change: $1.78
+Rounded Change: $1.8
+You need to dispense 1 loonie, 3 quarters, and 1 nickel.
 ```
 
